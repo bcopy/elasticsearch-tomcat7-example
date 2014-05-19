@@ -11,7 +11,7 @@ mvn package cargo:run
 
 Elasticsearch is then accessible at :
 
-[http://localhost:8080/elasticsearch-tomcat7-example]
+[http://localhost:8080/elasticsearch-tomcat7-example](http://localhost:8080/elasticsearch-tomcat7-example)
 
 Hazelcast will be running on port 5701 (or whichever is locally available)
 
