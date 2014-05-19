@@ -1,7 +1,7 @@
-elasticsearch-tomcat7-example
+elasticsearch-tomcat7-example - Hazelcast branch
 =============================
 
-Example Maven project that deploys Elasticsearch as a servlet to a Cargo Tomcat 7 container
+Example Maven project that deploys Elasticsearch as a servlet to a Cargo Tomcat 7 container, including a Hazelcast cluster to integrate queueing support through the hazelcast-river module
 
 Simply install JAVA and Apache Maven, clone this github repository, then type :
 
@@ -11,5 +11,7 @@ mvn package cargo:run
 Elasticsearch is then accessible at :
 
 http://localhost:8080/elasticsearch-tomcat7-example
+
+Hazelcast will be running on port 5701 (or whichever is locally available)
 
 
