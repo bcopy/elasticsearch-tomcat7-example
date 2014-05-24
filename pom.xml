@@ -11,6 +11,13 @@
 
 
 	<dependencies>
+	
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>1.6.1</version>
+		</dependency>
+	
 		<dependency>
 			<groupId>ch.qos.logback</groupId>
 			<artifactId>logback-classic</artifactId>
@@ -22,7 +29,47 @@
 			<version>0.9.30</version>
 		</dependency>
 
+	    <dependency>
+		    <groupId>com.hazelcast</groupId>
+		    <artifactId>hazelcast</artifactId>
+		    <version>${hazelcast.version}</version>
+            </dependency>
+	    <dependency>
+		    <groupId>com.hazelcast</groupId>
+		    <artifactId>hazelcast-spring</artifactId>
+		    <version>${hazelcast.version}</version>
+            </dependency>
 
+            
+		<dependency>
+			<groupId>cglib</groupId>
+			<artifactId>cglib</artifactId>
+			<version>${cglib.version}</version>
+		</dependency>
+         
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+ 
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aop</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		
+            
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
@@ -57,6 +104,16 @@
 	
 
 	<build>
+	    <resources>
+	      <resource>
+		<directory>src/main/resources</directory>
+		<filtering>true</filtering>
+	      </resource>
+	      <resource>
+		<directory>src/main/java</directory>
+		<filtering>false</filtering>
+	      </resource>
+	    </resources>
 	
 		<plugins>
 
@@ -76,17 +133,17 @@
 				<configuration>
 					<container>
 						<containerId>tomcat7x</containerId>
-						<zipUrlInstaller><url>http://archive.apache.org/dist/tomcat/tomcat-7/v7.0.37/bin/apache-tomcat-7.0.37.zip</url></zipUrlInstaller>
-						<systemProperties>
+						<zipUrlInstaller><url>http://archive.apache.org/dist/tomcat/tomcat-7/v7.0.53/bin/apache-tomcat-7.0.53.zip</url></zipUrlInstaller>
+						<!--systemProperties>
 							<java.security.manager>default</java.security.manager>
 							<java.security.policy>${project.basedir}/src/main/tomcat7/catalina.policy</java.security.policy>
-						</systemProperties>
+						</systemProperties-->
 					</container>
 					<configuration> 
 					   <properties> 
 					   <!-- -Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=8037 -Xnoagent -Djava.compiler=NONE    -->
 					      <!--cargo.jvmargs>-Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=9010 -Dcom.sun.management.jmxremote.ssl=false -Dcom.sun.management.jmxremote.authenticate=false</cargo.jvmargs-->
-                       </properties> 
+					   </properties> 
 					</configuration>
 				</configuration>
 				
@@ -97,6 +154,14 @@
 	</build>
 	
 	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<hazelcast.version>3.0</hazelcast.version>
+		<cglib.version>2.2.2</cglib.version>
+		<spring.version>3.1.4.RELEASE</spring.version>
+		<mvn.hazelcast.cluster.members.ips>127.0.0.1</mvn.hazelcast.cluster.members.ips>
+		<mvn.hazelcast.cluster.group.name>defaulthzgroup</mvn.hazelcast.cluster.group.name>
+		<mvn.hazelcast.cluster.group.password>defaulthzpassword</mvn.hazelcast.cluster.group.password>
+		
 	</properties>
 	
 </project>
