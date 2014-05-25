@@ -137,13 +137,20 @@
 					<target>1.6</target>
 				</configuration>
 			</plugin>
-
+			
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>2.4</version>
+			</plugin>
 			<plugin>
 				<groupId>org.codehaus.cargo</groupId>
 				<artifactId>cargo-maven2-plugin</artifactId>
+				<version>1.4.8</version>
 				<configuration>
 					<container>
 						<containerId>tomcat7x</containerId>
+						
 						<zipUrlInstaller><url>http://archive.apache.org/dist/tomcat/tomcat-7/v7.0.53/bin/apache-tomcat-7.0.53.zip</url></zipUrlInstaller>
 						<!--systemProperties>
 							<java.security.manager>default</java.security.manager>
@@ -152,10 +159,13 @@
 					</container>
 					<configuration> 
 					   <properties> 
-					   <!-- -Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=8037 -Xnoagent -Djava.compiler=NONE    -->
-					      <!--cargo.jvmargs>-Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=9010 -Dcom.sun.management.jmxremote.ssl=false -Dcom.sun.management.jmxremote.authenticate=false</cargo.jvmargs-->
+					      <!-- -Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=8037 -Xnoagent -Djava.compiler=NONE    -->
+					      <cargo.jvmargs>-Dhazelcast.jmx=true -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=9010 -Dcom.sun.management.jmxremote.ssl=false -Dcom.sun.management.jmxremote.authenticate=false</cargo.jvmargs>
 					   </properties> 
 					</configuration>
+					<deployables>
+					  <deployable ><location>${project.build.directory}/${project.build.finalName}</location></deployable>
+					</deployables>
 				</configuration>
 				
 			</plugin>
@@ -172,7 +182,7 @@
 		<mvn.hazelcast.cluster.members.ips>127.0.0.1</mvn.hazelcast.cluster.members.ips>
 		<mvn.hazelcast.cluster.group.name>defaulthzgroup</mvn.hazelcast.cluster.group.name>
 		<mvn.hazelcast.cluster.group.password>defaulthzpassword</mvn.hazelcast.cluster.group.password>
-		
+		<war.warName>${project.artifactId}</war.warName>
 	</properties>
 	
 </project>
