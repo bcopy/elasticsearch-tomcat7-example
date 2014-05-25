@@ -34,5 +34,6 @@
     
     <hz:multiMap id="test-multimap" name="test-multimap" instance-ref="instance"/>
     <hz:queue id="test-queue" name="test-queue" instance-ref="instance"/>
+    <hz:topic id="test-topic" name="test-topic" instance-ref="instance"/>
 
 </beans>
