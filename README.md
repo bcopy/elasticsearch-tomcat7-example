@@ -1,7 +1,7 @@
-elasticsearch-tomcat7-example - Hazelcast branch
+elasticsearch-tomcat7-example - Hazelcast 2.6 branch
 =============================
 
-Example Maven project that deploys Elasticsearch as a servlet to a Cargo Tomcat 7 container, including a Hazelcast cluster to integrate queueing support through the hazelcast-river module
+Example Maven project that deploys Elasticsearch as a servlet to a Cargo Tomcat 7 container, including a Hazelcast 2.6 cluster to integrate queueing support through the hazelcast-river module
 
 Simply install JAVA and Apache Maven, clone this github repository, then type :
 
