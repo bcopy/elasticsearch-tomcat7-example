@@ -101,7 +101,7 @@
         <dependency>
             <groupId>org.elasticsearch</groupId>
             <artifactId>elasticsearch-transport-wares</artifactId>
-            <version>1.8.0</version>
+            <version>1.7.0</version>
         </dependency>	
 
 <dependency>
@@ -176,7 +176,7 @@
 	
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<hazelcast.version>3.0</hazelcast.version>
+		<hazelcast.version>2.6</hazelcast.version>
 		<cglib.version>2.2.2</cglib.version>
 		<spring.version>3.1.4.RELEASE</spring.version>
 		<mvn.hazelcast.cluster.members.ips>127.0.0.1</mvn.hazelcast.cluster.members.ips>

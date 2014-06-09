@@ -1,16 +1,15 @@
 package org.github.est7example;
 
-import static org.junit.Assert.*;
-
 import java.util.Properties;
 
 import org.junit.Test;
 
+import com.hazelcast.client.ClientConfig;
 import com.hazelcast.client.HazelcastClient;
-import com.hazelcast.client.config.ClientConfig;
+//import com.hazelcast.client.config.ClientConfig;
 import com.hazelcast.core.HazelcastInstance;
+import com.hazelcast.core.IQueue;
 import com.hazelcast.core.ITopic;
-import com.hazelcast.monitor.LocalTopicStats;
 
 public class HazelcastQueueRiverIT {
 
@@ -22,27 +21,29 @@ public class HazelcastQueueRiverIT {
 				"hazelcast.properties").openStream());
 		ClientConfig clientConfig = new ClientConfig()
 				.addAddress("127.0.0.1:5701");
-		(clientConfig
-				.getGroupConfig()).setName(
-						hazelcastProps
-								.getProperty("hazelcast.cluster.group.name"))
-				.setPassword(
-						hazelcastProps
-								.getProperty("hazelcast.cluster.group.password"));
+//		(clientConfig
+//				.getGroupConfig()).setName(
+//						hazelcastProps
+//								.getProperty("hazelcast.cluster.group.name"))
+//				.setPassword(
+//						hazelcastProps
+//								.getProperty("hazelcast.cluster.group.password"));
 
 		HazelcastInstance hzClient = HazelcastClient
 				.newHazelcastClient(clientConfig);
 		
 		TestMessage testMessage = new TestMessage();
-		ITopic<TestMessage> topic = hzClient.getTopic("test-topic");
-		
-		
-		topic.publish(testMessage);
-		topic.publish(testMessage);
-		topic.publish(testMessage);
-		
-//		LocalTopicStats lts = topic.getLocalTopicStats();
-//		assertTrue(lts.getReceiveOperationCount() > 0);
+//		ITopic<TestMessage> topic = hzClient.getTopic("testtopic");
+//		
+//		
+//		topic.publish(testMessage);
+//		topic.publish(testMessage);
+//		topic.publish(testMessage);
+//		
+		IQueue<TestMessage> queue = hzClient.getQueue("testqueue");
+		queue.offer(testMessage);
+		queue.offer(testMessage);
+		queue.offer(testMessage);
 		
         // Wait for indexing to take place
 		Thread.sleep(4000);

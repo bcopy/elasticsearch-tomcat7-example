@@ -1,4 +1,2 @@
 cluster.name: elasticsearch-tomcat7-example
 
-path:
-  logs: /tmp/
