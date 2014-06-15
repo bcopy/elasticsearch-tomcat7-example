@@ -16,3 +16,21 @@ Elasticsearch is then accessible at :
 Hazelcast will be running on port 5701 (or whichever is locally available)
 
 
+````shell
+./add_river.sh
+````
+
+will configure a Hazelcast river on your locally running ES node.
+
+
+Finally, the integration test
+src/test/java/org/github/est7example/HazelcastQueueRiverIT.java
+
+publishes messages in the test topic.
+
+Observed performance of the topic queue consumption is around 2 ms per message (for 100 000 messages in total)
+
+Please note that this example works with Hazelcast 3.2 - you need to obtain my update to elasticsearch 0.90.10 and Hz 3.2, available at :
+https://github.com/bcopy/elasticsearch-river-hazelcast
+
+(Pull requests have been sent to the original author of the river module).
