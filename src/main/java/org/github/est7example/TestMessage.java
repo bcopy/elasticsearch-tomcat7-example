@@ -2,7 +2,7 @@ package org.github.est7example;
 
 import java.io.Serializable;
 import java.util.UUID;
-
+ 
 public class TestMessage implements Serializable {
 	/**
 	 * 

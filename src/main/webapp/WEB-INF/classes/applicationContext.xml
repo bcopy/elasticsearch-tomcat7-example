@@ -19,10 +19,7 @@
 	    </property>
 	</bean>
 	
-    <bean class="org.github.est7example.HazelcastClusterFactory"/>
-    
-    
-    <!-- hz:hazelcast id="instance">
+    <hz:hazelcast id="instance">
         <hz:config>
             <hz:network port="5701" port-auto-increment="false">
                 <hz:join>
@@ -36,6 +33,6 @@
     
     <hz:multiMap id="testmultimap" name="test-multimap" instance-ref="instance"/>
     <hz:queue id="testqueue" name="testqueue" instance-ref="instance"/>
-    <hz:topic id="testtopic" name="testtopic" instance-ref="instance"/-->
+    <hz:topic id="testtopic" name="testtopic" instance-ref="instance"/>
 
 </beans>

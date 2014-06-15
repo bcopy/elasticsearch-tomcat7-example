@@ -3,7 +3,7 @@ curl -v -XPUT 'http://localhost:8080/elasticsearch-tomcat7-example/_river/elasti
   "hazelcast" : {
       "hostname": "localhost",
         "port" : "5701",
-       "queue" : "testqueue"
+       "topic" : "test-topic"
     },
     "index": {
         "name": "hazelcast-test"
