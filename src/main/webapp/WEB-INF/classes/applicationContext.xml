@@ -21,7 +21,6 @@
 
     <hz:hazelcast id="instance">
         <hz:config>
-            <hz:group name="${hazelcast.cluster.group.name}" password="${hazelcast.cluster.group.password}"/>
             <hz:network port="5701" port-auto-increment="false">
                 <hz:join>
                     <hz:tcp-ip enabled="true">
